@@ -89,17 +89,44 @@ return {
 	},
 
 	-- Catppuccin Theme
+
 	{
 		"catppuccin/nvim",
 		name = "catppuccin",
 		config = function()
 			require("catppuccin").setup({
-				disable_background = true,
-				on_colors = function(colors)
-					colors.bg_highlight = "#143652"
-					colors.bg = "#1B1B1B"
-					colors.bg_statusline = "#011423"
-				end,
+				flavour = "mocha", -- Options: 'latte', 'frappe', 'macchiato', 'mocha'
+				transparent_background = false,
+				integrations = {
+					treesitter = true,
+					lsp_trouble = true,
+					cmp = true,
+					gitsigns = true,
+					telescope = true,
+					nvimtree = true,
+					dashboard = true,
+					markdown = true,
+					which_key = true,
+					indent_blankline = {
+						enabled = true,
+						colored_indent_levels = false,
+					},
+					native_lsp = {
+						enabled = true,
+						virtual_text = {
+							errors = "italic",
+							hints = "italic",
+							warnings = "italic",
+							information = "italic",
+						},
+						underlines = {
+							errors = "underline",
+							hints = "underline",
+							warnings = "underline",
+							information = "underline",
+						},
+					},
+				},
 			})
 		end,
 	},
@@ -108,5 +135,17 @@ return {
 	{
 		"shaunsingh/nord.nvim",
 		name = "nord",
+	},
+	{
+		"rebelot/kanagawa.nvim",
+	},
+	{
+		"sainnhe/gruvbox-material",
+		config = function()
+			vim.g.gruvbox_material_background = "medium" -- Options: 'soft', 'medium', 'hard'
+			vim.g.gruvbox_material_enable_italic = 1
+			vim.g.gruvbox_material_disable_italic_comment = 0
+			vim.g.gruvbox_material_transparent_background = 0
+		end,
 	},
 }
