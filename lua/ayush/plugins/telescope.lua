@@ -34,7 +34,7 @@ return {
 		vim.keymap.set("n", "<leader>ps", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
 		end)
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
+		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[S]earch by [G]rep [W]ords" })
 		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<C-p>", builtin.git_files, {})
