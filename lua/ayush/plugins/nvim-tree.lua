@@ -51,6 +51,13 @@ return {
 				},
 				root_folder_label = ":t",
 			},
+			filters = {
+				dotfiles = false, -- Show dotfiles
+				custom = {}, -- No custom filters
+			},
+			git = {
+				ignore = false, -- Show files ignored by git
+			},
 		},
 		config = function(_, opts)
 			local nvimtree = require("nvim-tree")
