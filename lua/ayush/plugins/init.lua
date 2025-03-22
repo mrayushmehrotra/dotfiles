@@ -9,6 +9,7 @@ return {
 	"christoomey/vim-tmux-navigator", -- tmux & split window navigation
 	"tpope/vim-sleuth",
 	"j-hui/fidget.nvim",
+	"rcarriga/nvim-notify",
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
