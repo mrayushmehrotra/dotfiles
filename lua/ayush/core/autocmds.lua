@@ -14,17 +14,13 @@ autocmd("TextYankPost", {
 	end,
 })
 
--- Remove trailing whitespace on save
-local whitespace_group = augroup("Whitespace", { clear = true })
-autocmd("BufWritePre", { group = whitespace_group, pattern = "*", command = [[%s/\s\+$//e]] })
-
--- Set filetype for specific file extensions
-local filetype_group = augroup("FileType", { clear = true })
-autocmd({ "BufRead", "BufNewFile" }, {
-	group = filetype_group,
-	pattern = "*.md",
-	command = "set filetype=markdown",
-})
+-- -- Set filetype for specific file extensions
+-- local filetype_group = augroup("FileType", { clear = true })
+-- autocmd({ "BufRead", "BufNewFile" }, {
+-- 	group = filetype_group,
+-- 	pattern = "*.md",
+-- 	command = "set filetype=markdown",
+-- })
 
 -- Auto resize panes when window is resized
 local resize_group = augroup("Resize", { clear = true })
@@ -33,4 +29,3 @@ autocmd("VimResized", {
 	pattern = "*",
 	command = "wincmd =",
 })
-
