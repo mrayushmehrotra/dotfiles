@@ -1,17 +1,13 @@
--- function ColorMyPencils(color)
--- 	color = color or "rose-pine-moon"
--- 	vim.cmd.colorscheme(color)
---
--- 	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
--- 	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
--- end
+function ColorMyPencils(color)
+	color = color or "rose-pine-moon"
+	vim.cmd.colorscheme(color)
+
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
+end
 
 return {
-	-- Brightburn Theme
-	{
-		"erikbackman/brightburn.vim",
-	},
-
+	
 	-- TokyoNight Theme
 	{
 		"folke/tokyonight.nvim",
@@ -121,18 +117,6 @@ return {
 	{
 		"shaunsingh/nord.nvim",
 		name = "nord",
-	},
-	{
-		"rebelot/kanagawa.nvim",
-	},
-	{
-		"sainnhe/gruvbox-material",
-		config = function()
-			vim.g.gruvbox_material_background = "medium" -- Options: 'soft', 'medium', 'hard'
-			vim.g.gruvbox_material_enable_italic = 1
-			vim.g.gruvbox_material_disable_italic_comment = 0
-			vim.g.gruvbox_material_transparent_background = 0
-		end,
 	},
 	{
 		"scottmckendry/cyberdream.nvim",

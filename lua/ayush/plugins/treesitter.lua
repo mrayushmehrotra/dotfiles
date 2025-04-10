@@ -6,18 +6,29 @@ return {
 			-- A list of parser names, or "all"
 			ensure_installed = {
 				"vimdoc",
-				"javascript",
-				"typescript",
 				"c",
 				"lua",
 				"rust",
+				"javascript",
+				"typescript",
+
+				"json",
+				"html",
+				"css",
+				"scss",
+				"vim",
+				"markdown",
+
+				"yaml",
 				"jsdoc",
 				"bash",
 			},
 			ignore_install = {},
 			-- Install parsers synchronously (only applied to `ensure_installed`)
 			sync_install = false,
-
+			highlight = {
+				enable = true,
+			},
 			-- Automatically install missing parsers when entering buffer
 			-- Recommendation: set to false if you don"t have `tree-sitter` CLI installed locally
 			auto_install = true,
