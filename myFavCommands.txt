@@ -1,0 +1,15 @@
+for ZSH
+    lightning fast navigator (cd ing into your fav folder)
+    asd() {
+    # Use fzf to select a directory
+    selected=$(find ~/codes ~/learn ~/* ~/.config -mindepth 1 -maxdepth 3 -type d 2>/dev/null | fzf)
+
+    # Check if a directory was selected
+    if [ -n "$selected" ]; then
+        # Change to the selected directory
+        cd "$selected" || { echo "Failed to change directory"; return 1; }
+    else
+        echo "No directory selected."
+    fi
+}
+
