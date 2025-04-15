@@ -8,7 +8,7 @@ return {
 	"nvim-telescope/telescope-ui-select.nvim",
 	"christoomey/vim-tmux-navigator", -- tmux & split window navigation
 	"j-hui/fidget.nvim",
-	"rcarriga/nvim-notify",
+
 	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
@@ -52,11 +52,28 @@ return {
 	{
 		"rcarriga/nvim-notify",
 		config = function()
-			require("notify").setup({
+			local notify = require("notify")
+
+			notify.setup({
 				background_colour = "#000000",
+				stages = "slide", -- Slide-in animation
+				top_down = false, -- So newer notifications appear at the bottom
+				on_open = function(win)
+					local col = vim.o.columns
+					local row = vim.o.lines
+					vim.api.nvim_win_set_config(win, {
+						relative = "editor",
+						anchor = "SE", -- Bottom-right corner
+						row = row - 2,
+						col = col - 2,
+					})
+				end,
 			})
+
+			vim.notify = notify -- Optional: Override default notify
 		end,
 	},
+
 	{
 		"styled-components/vim-styled-components",
 		ft = { "javascript", "javascriptreact", "typescript", "typescriptreact" },
@@ -86,7 +103,6 @@ return {
 		  { "S", mode = { "n", "x", "o" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
 		  { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
             { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
-
 		  { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
 		},
 	},

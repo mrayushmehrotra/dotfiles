@@ -6,7 +6,10 @@ keymap.set("n", "<leader>nh", ":nohl<CR>", { desc = "Clear search highlights" })
 -- increment/decrement numbers
 keymap.set("n", "<leader>+", "<C-A>", { desc = "Increment number" }) -- increment
 keymap.set("n", "<leader>-", "<C-x>", { desc = "Decrement number" }) -- decrement
-
+vim.keymap.set("v", "<leader>cl", [[y'>oconsole.log('<C-r>"', <C-r>")<Esc>]], {
+	noremap = true,
+	desc = "console log visually selected text on a new line",
+})
 -- window management
 keymap.set("n", "<leader>sv", "<C-w>v", { desc = "Split window vertically" }) -- split window vertically
 keymap.set("n", "<leader>sh", "<C-w>s", { desc = "Split window horizontally" }) -- split window horizontally

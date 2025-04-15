@@ -1,5 +1,6 @@
 for ZSH
-    lightning fast navigator (cd ing into your fav folder)
+lightning fast navigator (cd ing into your fav folder)
+
     asd() {
     # Use fzf to select a directory
     selected=$(find ~/codes ~/learn ~/* ~/.config -mindepth 1 -maxdepth 3 -type d 2>/dev/null | fzf)
