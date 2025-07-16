@@ -13,6 +13,8 @@ return {
 		},
 		keys = {
 			{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "Open Explorer" },
+
+			{ "<leader>pv", "<cmd>NvimTreeCollapse<cr>", desc = "Collapse All Folders" },
 		},
 		opts = {
 			reload_on_bufenter = true,

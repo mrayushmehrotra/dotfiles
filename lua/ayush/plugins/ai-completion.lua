@@ -1,13 +1,7 @@
 return {
-	"codota/tabnine-nvim",
-	build = "./dl_binaries.sh",
+
+	"supermaven-inc/supermaven-nvim",
 	config = function()
-		require("tabnine").setup({
-			disable_auto_comment = true,
-			accept_keymap = "<Tab>",
-			debounce_ms = 200,
-			suggestion_color = { gui = "#808080", cterm = 244 },
-			exclude_filetypes = { "TelescopePrompt" },
-		})
+		require("supermaven-nvim").setup({})
 	end,
 }
