@@ -7,7 +7,7 @@ function ColorMyPencils(color)
 end
 
 return {
-	
+
 	-- TokyoNight Theme
 	{
 		"folke/tokyonight.nvim",
@@ -128,7 +128,7 @@ return {
 				italic_comments = true,
 				borderless_telescope = false,
 			})
-			vim.cmd([[colorscheme cyberdream]])
+			-- vim.cmd([[colorscheme cyberdream]])
 		end,
 	},
 }

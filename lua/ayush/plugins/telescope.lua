@@ -1,5 +1,4 @@
 return {
-	-- Fuzzy Finder (files, lsp, etc)
 	"nvim-telescope/telescope.nvim",
 	event = "VimEnter",
 	branch = "0.1.x",
@@ -19,6 +18,17 @@ return {
 					require("telescope.themes").get_dropdown(),
 				},
 			},
+			defaults = {
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--smart-case",
+				},
+			},
 		})
 
 		-- Enable Telescope extensions if they are installed
@@ -34,7 +44,13 @@ return {
 		vim.keymap.set("n", "<leader>ps", function()
 			builtin.grep_string({ search = vim.fn.input("Grep > ") })
 		end)
-		vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "[S]earch by [G]rep [W]ords" })
+		vim.keymap.set("n", "<leader>fg", function()
+			builtin.live_grep({
+				additional_args = function()
+					return { "--fixed-strings" }
+				end,
+			})
+		end, { desc = "[S]earch by [G]rep [W]ords" })
 		vim.keymap.set("n", "<leader>fd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
 		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<C-p>", builtin.git_files, {})
@@ -42,7 +58,6 @@ return {
 		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 		vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
-		-- Advanced example of overriding default behavior and theme
 		vim.keymap.set("n", "<leader>/", function()
 			builtin.current_buffer_fuzzy_find(require("telescope.themes").get_dropdown({
 				winblend = 10,
@@ -54,10 +69,12 @@ return {
 			builtin.live_grep({
 				grep_open_files = true,
 				prompt_title = "Live Grep in Open Files",
+				additional_args = function()
+					return { "--fixed-strings" }
+				end,
 			})
 		end, { desc = "[S]earch [/] in Open Files" })
 
-		-- Shortcut for searching your Neovim configuration files
 		vim.keymap.set("n", "<leader>sn", function()
 			builtin.find_files({ cwd = vim.fn.stdpath("config") })
 		end, { desc = "[S]earch [N]eovim files" })
