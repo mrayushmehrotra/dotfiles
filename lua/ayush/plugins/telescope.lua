@@ -28,6 +28,14 @@ return {
 					"--column",
 					"--smart-case",
 				},
+				layout_strategy = "horizontal",
+				layout_config = {
+					horizontal = {
+						preview_width = 0.7,
+					},
+					prompt_position = "top",
+				},
+				sorting_strategy = "ascending",
 			},
 		})
 
