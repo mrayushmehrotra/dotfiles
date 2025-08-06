@@ -31,7 +31,7 @@ return {
 				layout_strategy = "horizontal",
 				layout_config = {
 					horizontal = {
-						preview_width = 0.7,
+						preview_width = 0.6,
 					},
 					prompt_position = "top",
 				},
@@ -63,7 +63,7 @@ return {
 		vim.keymap.set("n", "<leader>fr", builtin.resume, { desc = "[S]earch [R]esume" })
 		vim.keymap.set("n", "<C-p>", builtin.git_files, {})
 		vim.keymap.set("n", "<leader>f.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-		vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
+
 		vim.keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
 
 		vim.keymap.set("n", "<leader>/", function()

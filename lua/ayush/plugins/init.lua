@@ -10,6 +10,17 @@ return {
 	"j-hui/fidget.nvim",
 
 	{
+		"developedbyed/marko.nvim",
+		config = function()
+			require("marko").setup({
+				width = 100,
+				height = 100,
+				border = "rounded",
+				title = " Marks ",
+			})
+		end,
+	},
+	{
 		"stevearc/dressing.nvim",
 		event = "VeryLazy",
 	},
@@ -27,7 +38,7 @@ return {
 		config = function()
 			vim.g.VM_maps = {
 				["Find Under"] = "<C-n>",
-				["Find Subword Under"] = "<C-n>",
+				["Find Subword Under"] = "<C-N>",
 			}
 		end,
 	},
@@ -66,6 +77,7 @@ return {
 			notify.setup({
 				background_colour = "#000000",
 				stages = "slide", -- Slide-in animation
+				merge_duplicates = true,
 				top_down = false, -- So newer notifications appear at the bottom
 				on_open = function(win)
 					local col = vim.o.columns
@@ -95,9 +107,17 @@ return {
 
 	{
 		"folke/persistence.nvim",
-		event = "BufReadPre",
+		event = "BufReadPre", -- load before buffers are read
 		config = function()
-			require("persistence").setup()
+			require("persistence").setup({
+				dir = vim.fn.stdpath("state") .. "/sessions/", -- session directory
+				options = { "buffers", "curdir", "tabpages", "winsize" }, -- options to save
+			})
+
+			-- Keymaps
+			vim.keymap.set("n", "<leader><leader>", function()
+				require("persistence").load({ last = true })
+			end, { desc = "Restore Last Session (Current Directory)" })
 		end,
 	},
 
