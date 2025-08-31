@@ -33,15 +33,7 @@ return {
 			vim.diagnostic.config({ virtual_text = false }) -- Only if needed in your configuration, if you already have native LSP diagnostics
 		end,
 	},
-	{
-		"mg979/vim-visual-multi",
-		config = function()
-			vim.g.VM_maps = {
-				["Find Under"] = "<C-n>",
-				["Find Subword Under"] = "<C-N>",
-			}
-		end,
-	},
+
 	{
 		"folke/noice.nvim",
 		event = "VeryLazy",
