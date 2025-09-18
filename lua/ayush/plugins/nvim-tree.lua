@@ -50,7 +50,7 @@ return {
 				root_folder_label = ":t",
 			},
 			filters = {
-				dotfiles = true, -- Show dotfiles
+				dotfiles = false, -- Show dotfiles
 				custom = {}, -- No custom filters
 			},
 			git = {

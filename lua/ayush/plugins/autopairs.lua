@@ -1,9 +1,6 @@
 return {
 	"windwp/nvim-autopairs",
 	event = { "InsertEnter" },
-	dependencies = {
-		"hrsh7th/nvim-cmp", -- nvim-cmp for autocompletion
-	},
 	config = function()
 		-- Import nvim-autopairs
 		local autopairs = require("nvim-autopairs")
@@ -19,13 +16,7 @@ return {
 			},
 		})
 
-		-- Import nvim-autopairs completion functionality
-		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
-
-		-- Import nvim-cmp (completions plugin)
-		local cmp = require("cmp")
-
-		-- Make autopairs and completion work together
-		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		-- No need for nvim-cmp integration with blink.nvim
+		-- blink.nvim handles its own completion system
 	end,
 }

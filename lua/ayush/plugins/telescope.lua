@@ -6,7 +6,7 @@ return {
 		"nvim-lua/plenary.nvim",
 		{
 			"nvim-telescope/telescope-fzf-native.nvim",
-			build = "cmake -S -B build  -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
+			build = "cmake -S . -B build  -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release",
 		},
 		{ "nvim-telescope/telescope-ui-select.nvim" },
 		{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
@@ -31,9 +31,9 @@ return {
 				layout_strategy = "horizontal",
 				layout_config = {
 					horizontal = {
-						preview_width = 0.6,
+						preview_width = 0.5,
 					},
-					prompt_position = "top",
+					prompt_position = "bottom",
 				},
 				sorting_strategy = "ascending",
 			},

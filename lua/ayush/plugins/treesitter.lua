@@ -87,6 +87,7 @@ return {
 				enable = true, -- Enable this plugin
 				trim_scope = "outer",
 				mode = "cursor", -- Calculate context based on cursor position
+				max_lines = 2,
 				separator = "─", -- Line between context and code (set to nil to disable)
 				zindex = 20, -- Keep it on top
 			})
