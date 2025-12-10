@@ -14,3 +14,32 @@ lightning fast navigator (cd ing into your fav folder)
     fi
 }
 
+
+
+    asd() {
+    # Use fzf to select a directory
+    selected=$(find ~/personal ~/work ~/* ~/.config -mindepth 1 -maxdepth 3 -type d 2>/dev/null | fzf)
+
+    # Check if a directory was selected
+    if [ -n "$selected" ]; then
+        # Change to the selected directory
+        cd "$selected" || { echo "Failed to change directory"; return 1; }
+    else
+        echo "No directory selected."
+    fi
+}
+
+
+
+alias rustdesk='flatpak run com.rustdesk.RustDesk'
+alias ls='ls -la --color=auto'
+alias grep='grep --color=auto'
+export PATH="/home/ayush/.cache/.bun/bin:$PATH"
+# File system
+alias ls='eza -lh --group-directories-first --icons=auto'
+alias lsa='ls -a'
+alias lt='eza --tree --level=2 --long --icons --git'
+alias lta='lt -a'
+alias ff="fzf --preview 'bat --style=numbers --color=always {}'"
+alias cd="zd"
+
