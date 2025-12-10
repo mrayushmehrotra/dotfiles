@@ -98,18 +98,24 @@ return {
 	},
 
 	{
-		"folke/persistence.nvim",
-		event = "BufReadPre", -- load before buffers are read
+		"rmagatti/auto-session",
 		config = function()
-			require("persistence").setup({
-				dir = vim.fn.stdpath("state") .. "/sessions/", -- session directory
-				options = { "buffers", "curdir", "tabpages", "winsize" }, -- options to save
+			local auto_session = require("auto-session")
+
+			auto_session.setup({
+				auto_restore_enabled = false,
+				auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
 			})
 
-			-- Keymaps
-			vim.keymap.set("n", "<leader><leader>", function()
-				require("persistence").load({ last = true })
-			end, { desc = "Restore Last Session (Current Directory)" })
+			local keymap = vim.keymap
+
+			keymap.set("n", "<leader><leader>", "<cmd>AutoSession restore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
+			keymap.set(
+				"n",
+				"<leader>ws",
+				"<cmd>AutoSession save<CR>",
+				{ desc = "Save session for auto session root dir" }
+			) -- save workspace session for current working directory
 		end,
 	},
 
