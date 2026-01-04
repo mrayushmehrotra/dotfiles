@@ -1,11 +1,17 @@
 function ColorMyPencils(color)
-	-- color = color or "rose-pine-moon"
-	-- vim.cmd.colorscheme(color)
-	vim.api.nvim_set_hl(0, "Normal", { bg = "#222222" })
-	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "#222222" })
+	color = color or "cyberdream"
+	vim.cmd.colorscheme(color)
+	vim.api.nvim_set_hl(0, "Normal", { bg = "none" })
+	vim.api.nvim_set_hl(0, "NormalFloat", { bg = "none" })
 end
 
 return {
+	{
+		"scottmckendry/cyberdream.nvim",
+		lazy = false,
+		priority = 1000,
+		-- vim.cmd("colorscheme cyberdream"),
+	},
 	{
 
 		"folke/tokyonight.nvim",
@@ -48,8 +54,6 @@ return {
 					colors.fg_sidebar = fg_dark
 				end,
 			})
-
-			vim.cmd("colorscheme tokyonight")
 		end,
 	},
 	{
@@ -61,7 +65,7 @@ return {
 			require("vague").setup({
 				-- optional configuration here
 			})
-			vim.cmd("colorscheme vague")
+			-- vim.cmd("colorscheme vague")
 		end,
 	},
 	-- TokyoNight Theme
@@ -165,7 +169,6 @@ return {
 					which_key = true,
 				},
 			})
-			vim.cmd([[colorscheme catppuccin]])
 		end,
 	},
 
