@@ -109,7 +109,7 @@ return {
 
 			local keymap = vim.keymap
 
-			keymap.set("n", "<leader><leader>", "<cmd>AutoSession restore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
+			keymap.set("n", "<leader>ww", "<cmd>AutoSession restore<CR>", { desc = "Restore session for cwd" }) -- restore last workspace session for current directory
 			keymap.set(
 				"n",
 				"<leader>ws",

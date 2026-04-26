@@ -55,6 +55,8 @@ return {
 				end,
 			})
 		end,
+
+		-- vim.cmd([[highlight! PmenuSel guibg=#FCA5A5 guifg=#000000]]),
 	},
 	{
 		"vague2k/vague.nvim",

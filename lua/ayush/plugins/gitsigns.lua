@@ -39,7 +39,6 @@ return {
 			map("n", "<leader>hD", function()
 				gs.diffthis("~")
 			end, "Diff this ~")
-
 		end,
 	},
 }
