@@ -1,0 +1,6 @@
+[credential "https://github.com"]
+	helper = 
+	helper = !/nix/store/i9xqd3f37ajn8ba643d1m7as39609vxr-gh-2.96.0/bin/.gh-wrapped auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/nix/store/i9xqd3f37ajn8ba643d1m7as39609vxr-gh-2.96.0/bin/.gh-wrapped auth git-credential
